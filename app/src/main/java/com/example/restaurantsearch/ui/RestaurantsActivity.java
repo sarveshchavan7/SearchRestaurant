@@ -143,6 +143,9 @@ public class RestaurantsActivity extends DaggerAppCompatActivity {
                         break;
                     case SUCCESS:
                         restaurantRecyclerAdapter.setCuisineAndRestaurant(listApiResponse.data);
+                        if (listApiResponse.data != null && listApiResponse.data.size() == 0) {
+                            Toast.makeText(RestaurantsActivity.this, getResources().getString(R.string.no_result_found), Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case ERROR:
                         Toast.makeText(RestaurantsActivity.this, getResources().getString(R.string.some_thing_went_wrong), Toast.LENGTH_SHORT).show();

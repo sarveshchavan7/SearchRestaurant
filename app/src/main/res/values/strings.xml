@@ -9,4 +9,5 @@
     <string name="cafe_american_beverages">Cafe, American, Beverages</string>
     <string name="rs_200_per_person">Rs 200 per person</string>
     <string name="some_thing_went_wrong">SOME THING WENT WRONG</string>
+    <string name="no_result_found">No result found</string>
 </resources>

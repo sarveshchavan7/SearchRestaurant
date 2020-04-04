@@ -41,7 +41,7 @@ public class RestaurantsViewModel extends ViewModel {
 
     public void searchRestaurants(String query) {
         apiResponseLiveData.postValue(ApiResponse.loading((List<ListItems>) null));
-        endPoints.searchRestaurants(query, 20).enqueue(new Callback<SearchRestaurant>() {
+        endPoints.searchRestaurants(query).enqueue(new Callback<SearchRestaurant>() {
             @Override
             public void onResponse(Call<SearchRestaurant> call, Response<SearchRestaurant> response) {
                 if (response.code() == 200 && response.body() != null) {

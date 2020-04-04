@@ -9,6 +9,6 @@ import retrofit2.http.Query;
 public interface EndPoints {
 
     @GET("search")
-    Call<SearchRestaurant> searchRestaurants(@Query("q") String queryString, @Query("count") int count);
+    Call<SearchRestaurant> searchRestaurants(@Query("q") String queryString);
 
 }
