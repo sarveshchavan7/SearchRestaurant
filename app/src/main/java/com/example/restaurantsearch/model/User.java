@@ -1,62 +1,109 @@
-
 package com.example.restaurantsearch.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
+public class User{
 
-@SuppressWarnings("unused")
-public class User {
+	@SerializedName("profile_deeplink")
+	private String profileDeeplink;
 
-    @SerializedName("foodie_color")
-    private String mFoodieColor;
-    @SerializedName("name")
-    private String mName;
-    @SerializedName("profile_deeplink")
-    private String mProfileDeeplink;
-    @SerializedName("profile_image")
-    private String mProfileImage;
-    @SerializedName("profile_url")
-    private String mProfileUrl;
+	@SerializedName("profile_image")
+	private String profileImage;
 
-    public String getFoodieColor() {
-        return mFoodieColor;
-    }
+	@SerializedName("profile_url")
+	private String profileUrl;
 
-    public void setFoodieColor(String foodieColor) {
-        mFoodieColor = foodieColor;
-    }
+	@SerializedName("foodie_color")
+	private String foodieColor;
 
-    public String getName() {
-        return mName;
-    }
+	@SerializedName("name")
+	private String name;
 
-    public void setName(String name) {
-        mName = name;
-    }
+	@SerializedName("foodie_level_num")
+	private int foodieLevelNum;
 
-    public String getProfileDeeplink() {
-        return mProfileDeeplink;
-    }
+	@SerializedName("foodie_level")
+	private String foodieLevel;
 
-    public void setProfileDeeplink(String profileDeeplink) {
-        mProfileDeeplink = profileDeeplink;
-    }
+	@SerializedName("zomato_handle")
+	private String zomatoHandle;
 
-    public String getProfileImage() {
-        return mProfileImage;
-    }
+	public void setProfileDeeplink(String profileDeeplink){
+		this.profileDeeplink = profileDeeplink;
+	}
 
-    public void setProfileImage(String profileImage) {
-        mProfileImage = profileImage;
-    }
+	public String getProfileDeeplink(){
+		return profileDeeplink;
+	}
 
-    public String getProfileUrl() {
-        return mProfileUrl;
-    }
+	public void setProfileImage(String profileImage){
+		this.profileImage = profileImage;
+	}
 
-    public void setProfileUrl(String profileUrl) {
-        mProfileUrl = profileUrl;
-    }
+	public String getProfileImage(){
+		return profileImage;
+	}
 
+	public void setProfileUrl(String profileUrl){
+		this.profileUrl = profileUrl;
+	}
+
+	public String getProfileUrl(){
+		return profileUrl;
+	}
+
+	public void setFoodieColor(String foodieColor){
+		this.foodieColor = foodieColor;
+	}
+
+	public String getFoodieColor(){
+		return foodieColor;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public void setFoodieLevelNum(int foodieLevelNum){
+		this.foodieLevelNum = foodieLevelNum;
+	}
+
+	public int getFoodieLevelNum(){
+		return foodieLevelNum;
+	}
+
+	public void setFoodieLevel(String foodieLevel){
+		this.foodieLevel = foodieLevel;
+	}
+
+	public String getFoodieLevel(){
+		return foodieLevel;
+	}
+
+	public void setZomatoHandle(String zomatoHandle){
+		this.zomatoHandle = zomatoHandle;
+	}
+
+	public String getZomatoHandle(){
+		return zomatoHandle;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"User{" + 
+			"profile_deeplink = '" + profileDeeplink + '\'' + 
+			",profile_image = '" + profileImage + '\'' + 
+			",profile_url = '" + profileUrl + '\'' + 
+			",foodie_color = '" + foodieColor + '\'' + 
+			",name = '" + name + '\'' + 
+			",foodie_level_num = '" + foodieLevelNum + '\'' + 
+			",foodie_level = '" + foodieLevel + '\'' + 
+			",zomato_handle = '" + zomatoHandle + '\'' + 
+			"}";
+		}
 }

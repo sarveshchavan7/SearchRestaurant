@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.restaurantsearch.BuildConfig;
 import com.example.restaurantsearch.R;
@@ -18,6 +20,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.reactivex.disposables.CompositeDisposable;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -59,7 +62,8 @@ public class AppModule {
     static RequestOptions providerRequestOptions() {
         return RequestOptions
                 .placeholderOf(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background);
+                .error(R.drawable.ic_launcher_background)
+                .transform(new CenterCrop(), new RoundedCorners(20));
     }
 
     @Singleton
@@ -79,6 +83,12 @@ public class AppModule {
     @Provides
     static RestaurantRecyclerAdapter provideRestaurantRecyclerAdapter(RequestManager requestManager) {
         return new RestaurantRecyclerAdapter(requestManager);
+    }
+
+    @Singleton
+    @Provides
+    static CompositeDisposable provideCompositeDisposable() {
+        return new CompositeDisposable();
     }
 
 }

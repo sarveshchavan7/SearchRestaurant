@@ -1,22 +1,25 @@
-
 package com.example.restaurantsearch.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
+public class Title{
 
-@SuppressWarnings("unused")
-public class Title {
+	@SerializedName("text")
+	private String text;
 
-    @SerializedName("text")
-    private String mText;
+	public void setText(String text){
+		this.text = text;
+	}
 
-    public String getText() {
-        return mText;
-    }
+	public String getText(){
+		return text;
+	}
 
-    public void setText(String text) {
-        mText = text;
-    }
-
+	@Override
+ 	public String toString(){
+		return 
+			"Title{" + 
+			"text = '" + text + '\'' + 
+			"}";
+		}
 }

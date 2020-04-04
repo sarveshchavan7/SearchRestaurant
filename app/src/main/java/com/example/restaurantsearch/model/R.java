@@ -1,31 +1,37 @@
-
 package com.example.restaurantsearch.model;
 
 import com.google.gson.annotations.SerializedName;
 
+public class R{
 
-@SuppressWarnings("unused")
-public class R {
+	@SerializedName("has_menu_status")
+	private HasMenuStatus hasMenuStatus;
 
-    @SerializedName("has_menu_status")
-    private HasMenuStatus mHasMenuStatus;
-    @SerializedName("res_id")
-    private Long mResId;
+	@SerializedName("res_id")
+	private int resId;
 
-    public HasMenuStatus getHasMenuStatus() {
-        return mHasMenuStatus;
-    }
+	public void setHasMenuStatus(HasMenuStatus hasMenuStatus){
+		this.hasMenuStatus = hasMenuStatus;
+	}
 
-    public void setHasMenuStatus(HasMenuStatus hasMenuStatus) {
-        mHasMenuStatus = hasMenuStatus;
-    }
+	public HasMenuStatus getHasMenuStatus(){
+		return hasMenuStatus;
+	}
 
-    public Long getResId() {
-        return mResId;
-    }
+	public void setResId(int resId){
+		this.resId = resId;
+	}
 
-    public void setResId(Long resId) {
-        mResId = resId;
-    }
+	public int getResId(){
+		return resId;
+	}
 
+	@Override
+ 	public String toString(){
+		return 
+			"R{" + 
+			"has_menu_status = '" + hasMenuStatus + '\'' + 
+			",res_id = '" + resId + '\'' + 
+			"}";
+		}
 }

@@ -1,101 +1,121 @@
-
 package com.example.restaurantsearch.model;
 
 import com.google.gson.annotations.SerializedName;
 
+public class Location{
 
-@SuppressWarnings("unused")
-public class Location {
+	@SerializedName("zipcode")
+	private String zipcode;
 
-    @SerializedName("address")
-    private String mAddress;
-    @SerializedName("city")
-    private String mCity;
-    @SerializedName("city_id")
-    private Long mCityId;
-    @SerializedName("country_id")
-    private Long mCountryId;
-    @SerializedName("latitude")
-    private String mLatitude;
-    @SerializedName("locality")
-    private String mLocality;
-    @SerializedName("locality_verbose")
-    private String mLocalityVerbose;
-    @SerializedName("longitude")
-    private String mLongitude;
-    @SerializedName("zipcode")
-    private String mZipcode;
+	@SerializedName("address")
+	private String address;
 
-    public String getAddress() {
-        return mAddress;
-    }
+	@SerializedName("city")
+	private String city;
 
-    public void setAddress(String address) {
-        mAddress = address;
-    }
+	@SerializedName("locality_verbose")
+	private String localityVerbose;
 
-    public String getCity() {
-        return mCity;
-    }
+	@SerializedName("latitude")
+	private String latitude;
 
-    public void setCity(String city) {
-        mCity = city;
-    }
+	@SerializedName("locality")
+	private String locality;
 
-    public Long getCityId() {
-        return mCityId;
-    }
+	@SerializedName("country_id")
+	private int countryId;
 
-    public void setCityId(Long cityId) {
-        mCityId = cityId;
-    }
+	@SerializedName("city_id")
+	private int cityId;
 
-    public Long getCountryId() {
-        return mCountryId;
-    }
+	@SerializedName("longitude")
+	private String longitude;
 
-    public void setCountryId(Long countryId) {
-        mCountryId = countryId;
-    }
+	public void setZipcode(String zipcode){
+		this.zipcode = zipcode;
+	}
 
-    public String getLatitude() {
-        return mLatitude;
-    }
+	public String getZipcode(){
+		return zipcode;
+	}
 
-    public void setLatitude(String latitude) {
-        mLatitude = latitude;
-    }
+	public void setAddress(String address){
+		this.address = address;
+	}
 
-    public String getLocality() {
-        return mLocality;
-    }
+	public String getAddress(){
+		return address;
+	}
 
-    public void setLocality(String locality) {
-        mLocality = locality;
-    }
+	public void setCity(String city){
+		this.city = city;
+	}
 
-    public String getLocalityVerbose() {
-        return mLocalityVerbose;
-    }
+	public String getCity(){
+		return city;
+	}
 
-    public void setLocalityVerbose(String localityVerbose) {
-        mLocalityVerbose = localityVerbose;
-    }
+	public void setLocalityVerbose(String localityVerbose){
+		this.localityVerbose = localityVerbose;
+	}
 
-    public String getLongitude() {
-        return mLongitude;
-    }
+	public String getLocalityVerbose(){
+		return localityVerbose;
+	}
 
-    public void setLongitude(String longitude) {
-        mLongitude = longitude;
-    }
+	public void setLatitude(String latitude){
+		this.latitude = latitude;
+	}
 
-    public String getZipcode() {
-        return mZipcode;
-    }
+	public String getLatitude(){
+		return latitude;
+	}
 
-    public void setZipcode(String zipcode) {
-        mZipcode = zipcode;
-    }
+	public void setLocality(String locality){
+		this.locality = locality;
+	}
 
+	public String getLocality(){
+		return locality;
+	}
+
+	public void setCountryId(int countryId){
+		this.countryId = countryId;
+	}
+
+	public int getCountryId(){
+		return countryId;
+	}
+
+	public void setCityId(int cityId){
+		this.cityId = cityId;
+	}
+
+	public int getCityId(){
+		return cityId;
+	}
+
+	public void setLongitude(String longitude){
+		this.longitude = longitude;
+	}
+
+	public String getLongitude(){
+		return longitude;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"Location{" + 
+			"zipcode = '" + zipcode + '\'' + 
+			",address = '" + address + '\'' + 
+			",city = '" + city + '\'' + 
+			",locality_verbose = '" + localityVerbose + '\'' + 
+			",latitude = '" + latitude + '\'' + 
+			",locality = '" + locality + '\'' + 
+			",country_id = '" + countryId + '\'' + 
+			",city_id = '" + cityId + '\'' + 
+			",longitude = '" + longitude + '\'' + 
+			"}";
+		}
 }

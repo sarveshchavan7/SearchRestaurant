@@ -1,421 +1,518 @@
-
 package com.example.restaurantsearch.model;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-@SuppressWarnings("unused")
-public class Restaurant {
-
-    @SerializedName("all_reviews")
-    private AllReviews mAllReviews;
-    @SerializedName("all_reviews_count")
-    private Long mAllReviewsCount;
-    @SerializedName("apikey")
-    private String mApikey;
-    @SerializedName("average_cost_for_two")
-    private Long mAverageCostForTwo;
-    @SerializedName("book_again_url")
-    private String mBookAgainUrl;
-    @SerializedName("book_form_web_view_url")
-    private String mBookFormWebViewUrl;
-    @SerializedName("cuisines")
-    private String mCuisines;
-    @SerializedName("currency")
-    private String mCurrency;
-    @SerializedName("deeplink")
-    private String mDeeplink;
-    @SerializedName("establishment")
-    private List<String> mEstablishment;
-    @SerializedName("establishment_types")
-    private List<Object> mEstablishmentTypes;
-    @SerializedName("events_url")
-    private String mEventsUrl;
-    @SerializedName("featured_image")
-    private String mFeaturedImage;
-    @SerializedName("has_online_delivery")
-    private Long mHasOnlineDelivery;
-    @SerializedName("has_table_booking")
-    private Long mHasTableBooking;
-    @SerializedName("highlights")
-    private List<String> mHighlights;
-    @SerializedName("id")
-    private String mId;
-    @SerializedName("include_bogo_offers")
-    private Boolean mIncludeBogoOffers;
-    @SerializedName("is_book_form_web_view")
-    private Long mIsBookFormWebView;
-    @SerializedName("is_delivering_now")
-    private Long mIsDeliveringNow;
-    @SerializedName("is_table_reservation_supported")
-    private Long mIsTableReservationSupported;
-    @SerializedName("is_zomato_book_res")
-    private Long mIsZomatoBookRes;
-    @SerializedName("location")
-    private Location mLocation;
-    @SerializedName("menu_url")
-    private String mMenuUrl;
-    @SerializedName("mezzo_provider")
-    private String mMezzoProvider;
-    @SerializedName("name")
-    private String mName;
-    @SerializedName("offers")
-    private List<Object> mOffers;
-    @SerializedName("opentable_support")
-    private Long mOpentableSupport;
-    @SerializedName("phone_numbers")
-    private String mPhoneNumbers;
-    @SerializedName("photo_count")
-    private Long mPhotoCount;
-    @SerializedName("photos")
-    private List<Photo> mPhotos;
-    @SerializedName("photos_url")
-    private String mPhotosUrl;
-    @SerializedName("price_range")
-    private Long mPriceRange;
-    @SerializedName("R")
-    private R mR;
-    @SerializedName("restaurant")
-    private Restaurant mRestaurant;
-    @SerializedName("store_type")
-    private String mStoreType;
-    @SerializedName("switch_to_order_menu")
-    private Long mSwitchToOrderMenu;
-    @SerializedName("thumb")
-    private String mThumb;
-    @SerializedName("timings")
-    private String mTimings;
-    @SerializedName("url")
-    private String mUrl;
-    @SerializedName("user_rating")
-    private UserRating mUserRating;
-
-    public AllReviews getAllReviews() {
-        return mAllReviews;
-    }
-
-    public void setAllReviews(AllReviews allReviews) {
-        mAllReviews = allReviews;
-    }
-
-    public Long getAllReviewsCount() {
-        return mAllReviewsCount;
-    }
-
-    public void setAllReviewsCount(Long allReviewsCount) {
-        mAllReviewsCount = allReviewsCount;
-    }
-
-    public String getApikey() {
-        return mApikey;
-    }
-
-    public void setApikey(String apikey) {
-        mApikey = apikey;
-    }
-
-    public Long getAverageCostForTwo() {
-        return mAverageCostForTwo;
-    }
-
-    public void setAverageCostForTwo(Long averageCostForTwo) {
-        mAverageCostForTwo = averageCostForTwo;
-    }
-
-    public String getBookAgainUrl() {
-        return mBookAgainUrl;
-    }
-
-    public void setBookAgainUrl(String bookAgainUrl) {
-        mBookAgainUrl = bookAgainUrl;
-    }
-
-    public String getBookFormWebViewUrl() {
-        return mBookFormWebViewUrl;
-    }
-
-    public void setBookFormWebViewUrl(String bookFormWebViewUrl) {
-        mBookFormWebViewUrl = bookFormWebViewUrl;
-    }
-
-    public String getCuisines() {
-        return mCuisines;
-    }
-
-    public void setCuisines(String cuisines) {
-        mCuisines = cuisines;
-    }
-
-    public String getCurrency() {
-        return mCurrency;
-    }
-
-    public void setCurrency(String currency) {
-        mCurrency = currency;
-    }
-
-    public String getDeeplink() {
-        return mDeeplink;
-    }
-
-    public void setDeeplink(String deeplink) {
-        mDeeplink = deeplink;
-    }
-
-    public List<String> getEstablishment() {
-        return mEstablishment;
-    }
-
-    public void setEstablishment(List<String> establishment) {
-        mEstablishment = establishment;
-    }
-
-    public List<Object> getEstablishmentTypes() {
-        return mEstablishmentTypes;
-    }
-
-    public void setEstablishmentTypes(List<Object> establishmentTypes) {
-        mEstablishmentTypes = establishmentTypes;
-    }
-
-    public String getEventsUrl() {
-        return mEventsUrl;
-    }
-
-    public void setEventsUrl(String eventsUrl) {
-        mEventsUrl = eventsUrl;
-    }
-
-    public String getFeaturedImage() {
-        return mFeaturedImage;
-    }
-
-    public void setFeaturedImage(String featuredImage) {
-        mFeaturedImage = featuredImage;
-    }
-
-    public Long getHasOnlineDelivery() {
-        return mHasOnlineDelivery;
-    }
-
-    public void setHasOnlineDelivery(Long hasOnlineDelivery) {
-        mHasOnlineDelivery = hasOnlineDelivery;
-    }
-
-    public Long getHasTableBooking() {
-        return mHasTableBooking;
-    }
-
-    public void setHasTableBooking(Long hasTableBooking) {
-        mHasTableBooking = hasTableBooking;
-    }
-
-    public List<String> getHighlights() {
-        return mHighlights;
-    }
-
-    public void setHighlights(List<String> highlights) {
-        mHighlights = highlights;
-    }
-
-    public String getId() {
-        return mId;
-    }
-
-    public void setId(String id) {
-        mId = id;
-    }
-
-    public Boolean getIncludeBogoOffers() {
-        return mIncludeBogoOffers;
-    }
-
-    public void setIncludeBogoOffers(Boolean includeBogoOffers) {
-        mIncludeBogoOffers = includeBogoOffers;
-    }
-
-    public Long getIsBookFormWebView() {
-        return mIsBookFormWebView;
-    }
-
-    public void setIsBookFormWebView(Long isBookFormWebView) {
-        mIsBookFormWebView = isBookFormWebView;
-    }
-
-    public Long getIsDeliveringNow() {
-        return mIsDeliveringNow;
-    }
-
-    public void setIsDeliveringNow(Long isDeliveringNow) {
-        mIsDeliveringNow = isDeliveringNow;
-    }
-
-    public Long getIsTableReservationSupported() {
-        return mIsTableReservationSupported;
-    }
-
-    public void setIsTableReservationSupported(Long isTableReservationSupported) {
-        mIsTableReservationSupported = isTableReservationSupported;
-    }
-
-    public Long getIsZomatoBookRes() {
-        return mIsZomatoBookRes;
-    }
-
-    public void setIsZomatoBookRes(Long isZomatoBookRes) {
-        mIsZomatoBookRes = isZomatoBookRes;
-    }
-
-    public Location getLocation() {
-        return mLocation;
-    }
-
-    public void setLocation(Location location) {
-        mLocation = location;
-    }
-
-    public String getMenuUrl() {
-        return mMenuUrl;
-    }
-
-    public void setMenuUrl(String menuUrl) {
-        mMenuUrl = menuUrl;
-    }
-
-    public String getMezzoProvider() {
-        return mMezzoProvider;
-    }
-
-    public void setMezzoProvider(String mezzoProvider) {
-        mMezzoProvider = mezzoProvider;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public List<Object> getOffers() {
-        return mOffers;
-    }
-
-    public void setOffers(List<Object> offers) {
-        mOffers = offers;
-    }
-
-    public Long getOpentableSupport() {
-        return mOpentableSupport;
-    }
-
-    public void setOpentableSupport(Long opentableSupport) {
-        mOpentableSupport = opentableSupport;
-    }
-
-    public String getPhoneNumbers() {
-        return mPhoneNumbers;
-    }
-
-    public void setPhoneNumbers(String phoneNumbers) {
-        mPhoneNumbers = phoneNumbers;
-    }
+public class Restaurant{
 
-    public Long getPhotoCount() {
-        return mPhotoCount;
-    }
+	@SerializedName("include_bogo_offers")
+	private boolean includeBogoOffers;
 
-    public void setPhotoCount(Long photoCount) {
-        mPhotoCount = photoCount;
-    }
+	@SerializedName("has_online_delivery")
+	private int hasOnlineDelivery;
 
-    public List<Photo> getPhotos() {
-        return mPhotos;
-    }
+	@SerializedName("establishment_types")
+	private List<Object> establishmentTypes;
 
-    public void setPhotos(List<Photo> photos) {
-        mPhotos = photos;
-    }
+	@SerializedName("has_table_booking")
+	private int hasTableBooking;
 
-    public String getPhotosUrl() {
-        return mPhotosUrl;
-    }
+	@SerializedName("thumb")
+	private String thumb;
 
-    public void setPhotosUrl(String photosUrl) {
-        mPhotosUrl = photosUrl;
-    }
+	@SerializedName("average_cost_for_two")
+	private int averageCostForTwo;
 
-    public Long getPriceRange() {
-        return mPriceRange;
-    }
+	@SerializedName("menu_url")
+	private String menuUrl;
 
-    public void setPriceRange(Long priceRange) {
-        mPriceRange = priceRange;
-    }
+	@SerializedName("price_range")
+	private int priceRange;
 
-    public R getR() {
-        return mR;
-    }
+	@SerializedName("switch_to_order_menu")
+	private int switchToOrderMenu;
 
-    public void setR(R r) {
-        mR = r;
-    }
+	@SerializedName("photos")
+	private List<PhotosItem> photos;
 
-    public Restaurant getRestaurant() {
-        return mRestaurant;
-    }
+	@SerializedName("R")
+	private R R;
 
-    public void setRestaurant(Restaurant restaurant) {
-        mRestaurant = restaurant;
-    }
+	@SerializedName("all_reviews_count")
+	private int allReviewsCount;
 
-    public String getStoreType() {
-        return mStoreType;
-    }
+	@SerializedName("is_table_reservation_supported")
+	private int isTableReservationSupported;
 
-    public void setStoreType(String storeType) {
-        mStoreType = storeType;
-    }
+	@SerializedName("timings")
+	private String timings;
 
-    public Long getSwitchToOrderMenu() {
-        return mSwitchToOrderMenu;
-    }
+	@SerializedName("currency")
+	private String currency;
 
-    public void setSwitchToOrderMenu(Long switchToOrderMenu) {
-        mSwitchToOrderMenu = switchToOrderMenu;
-    }
+	@SerializedName("opentable_support")
+	private int opentableSupport;
 
-    public String getThumb() {
-        return mThumb;
-    }
+	@SerializedName("id")
+	private String id;
 
-    public void setThumb(String thumb) {
-        mThumb = thumb;
-    }
+	@SerializedName("all_reviews")
+	private AllReviews allReviews;
 
-    public String getTimings() {
-        return mTimings;
-    }
+	@SerializedName("user_rating")
+	private UserRating userRating;
 
-    public void setTimings(String timings) {
-        mTimings = timings;
-    }
+	@SerializedName("offers")
+	private List<Object> offers;
 
-    public String getUrl() {
-        return mUrl;
-    }
+	@SerializedName("apikey")
+	private String apikey;
 
-    public void setUrl(String url) {
-        mUrl = url;
-    }
+	@SerializedName("is_delivering_now")
+	private int isDeliveringNow;
 
-    public UserRating getUserRating() {
-        return mUserRating;
-    }
+	@SerializedName("deeplink")
+	private String deeplink;
 
-    public void setUserRating(UserRating userRating) {
-        mUserRating = userRating;
-    }
+	@SerializedName("is_zomato_book_res")
+	private int isZomatoBookRes;
 
+	@SerializedName("establishment")
+	private List<String> establishment;
+
+	@SerializedName("store_type")
+	private String storeType;
+
+	@SerializedName("featured_image")
+	private String featuredImage;
+
+	@SerializedName("url")
+	private String url;
+
+	@SerializedName("cuisines")
+	private String cuisines;
+
+	@SerializedName("phone_numbers")
+	private String phoneNumbers;
+
+	@SerializedName("photo_count")
+	private int photoCount;
+
+	@SerializedName("highlights")
+	private List<String> highlights;
+
+	@SerializedName("events_url")
+	private String eventsUrl;
+
+	@SerializedName("name")
+	private String name;
+
+	@SerializedName("location")
+	private Location location;
+
+	@SerializedName("book_again_url")
+	private String bookAgainUrl;
+
+	@SerializedName("is_book_form_web_view")
+	private int isBookFormWebView;
+
+	@SerializedName("book_form_web_view_url")
+	private String bookFormWebViewUrl;
+
+	@SerializedName("mezzo_provider")
+	private String mezzoProvider;
+
+	@SerializedName("photos_url")
+	private String photosUrl;
+
+	@SerializedName("order_deeplink")
+	private String orderDeeplink;
+
+	@SerializedName("order_url")
+	private String orderUrl;
+
+	public void setIncludeBogoOffers(boolean includeBogoOffers){
+		this.includeBogoOffers = includeBogoOffers;
+	}
+
+	public boolean isIncludeBogoOffers(){
+		return includeBogoOffers;
+	}
+
+	public void setHasOnlineDelivery(int hasOnlineDelivery){
+		this.hasOnlineDelivery = hasOnlineDelivery;
+	}
+
+	public int getHasOnlineDelivery(){
+		return hasOnlineDelivery;
+	}
+
+	public void setEstablishmentTypes(List<Object> establishmentTypes){
+		this.establishmentTypes = establishmentTypes;
+	}
+
+	public List<Object> getEstablishmentTypes(){
+		return establishmentTypes;
+	}
+
+	public void setHasTableBooking(int hasTableBooking){
+		this.hasTableBooking = hasTableBooking;
+	}
+
+	public int getHasTableBooking(){
+		return hasTableBooking;
+	}
+
+	public void setThumb(String thumb){
+		this.thumb = thumb;
+	}
+
+	public String getThumb(){
+		return thumb;
+	}
+
+	public void setAverageCostForTwo(int averageCostForTwo){
+		this.averageCostForTwo = averageCostForTwo;
+	}
+
+	public int getAverageCostForTwo(){
+		return averageCostForTwo;
+	}
+
+	public void setMenuUrl(String menuUrl){
+		this.menuUrl = menuUrl;
+	}
+
+	public String getMenuUrl(){
+		return menuUrl;
+	}
+
+	public void setPriceRange(int priceRange){
+		this.priceRange = priceRange;
+	}
+
+	public int getPriceRange(){
+		return priceRange;
+	}
+
+	public void setSwitchToOrderMenu(int switchToOrderMenu){
+		this.switchToOrderMenu = switchToOrderMenu;
+	}
+
+	public int getSwitchToOrderMenu(){
+		return switchToOrderMenu;
+	}
+
+	public void setPhotos(List<PhotosItem> photos){
+		this.photos = photos;
+	}
+
+	public List<PhotosItem> getPhotos(){
+		return photos;
+	}
+
+	public void setR(R R){
+		this.R = R;
+	}
+
+	public R getR(){
+		return R;
+	}
+
+	public void setAllReviewsCount(int allReviewsCount){
+		this.allReviewsCount = allReviewsCount;
+	}
+
+	public int getAllReviewsCount(){
+		return allReviewsCount;
+	}
+
+	public void setIsTableReservationSupported(int isTableReservationSupported){
+		this.isTableReservationSupported = isTableReservationSupported;
+	}
+
+	public int getIsTableReservationSupported(){
+		return isTableReservationSupported;
+	}
+
+	public void setTimings(String timings){
+		this.timings = timings;
+	}
+
+	public String getTimings(){
+		return timings;
+	}
+
+	public void setCurrency(String currency){
+		this.currency = currency;
+	}
+
+	public String getCurrency(){
+		return currency;
+	}
+
+	public void setOpentableSupport(int opentableSupport){
+		this.opentableSupport = opentableSupport;
+	}
+
+	public int getOpentableSupport(){
+		return opentableSupport;
+	}
+
+	public void setId(String id){
+		this.id = id;
+	}
+
+	public String getId(){
+		return id;
+	}
+
+	public void setAllReviews(AllReviews allReviews){
+		this.allReviews = allReviews;
+	}
+
+	public AllReviews getAllReviews(){
+		return allReviews;
+	}
+
+	public void setUserRating(UserRating userRating){
+		this.userRating = userRating;
+	}
+
+	public UserRating getUserRating(){
+		return userRating;
+	}
+
+	public void setOffers(List<Object> offers){
+		this.offers = offers;
+	}
+
+	public List<Object> getOffers(){
+		return offers;
+	}
+
+	public void setApikey(String apikey){
+		this.apikey = apikey;
+	}
+
+	public String getApikey(){
+		return apikey;
+	}
+
+	public void setIsDeliveringNow(int isDeliveringNow){
+		this.isDeliveringNow = isDeliveringNow;
+	}
+
+	public int getIsDeliveringNow(){
+		return isDeliveringNow;
+	}
+
+	public void setDeeplink(String deeplink){
+		this.deeplink = deeplink;
+	}
+
+	public String getDeeplink(){
+		return deeplink;
+	}
+
+	public void setIsZomatoBookRes(int isZomatoBookRes){
+		this.isZomatoBookRes = isZomatoBookRes;
+	}
+
+	public int getIsZomatoBookRes(){
+		return isZomatoBookRes;
+	}
+
+	public void setEstablishment(List<String> establishment){
+		this.establishment = establishment;
+	}
+
+	public List<String> getEstablishment(){
+		return establishment;
+	}
+
+	public void setStoreType(String storeType){
+		this.storeType = storeType;
+	}
+
+	public String getStoreType(){
+		return storeType;
+	}
+
+	public void setFeaturedImage(String featuredImage){
+		this.featuredImage = featuredImage;
+	}
+
+	public String getFeaturedImage(){
+		return featuredImage;
+	}
+
+	public void setUrl(String url){
+		this.url = url;
+	}
+
+	public String getUrl(){
+		return url;
+	}
+
+	public void setCuisines(String cuisines){
+		this.cuisines = cuisines;
+	}
+
+	public String getCuisines(){
+		return cuisines;
+	}
+
+	public void setPhoneNumbers(String phoneNumbers){
+		this.phoneNumbers = phoneNumbers;
+	}
+
+	public String getPhoneNumbers(){
+		return phoneNumbers;
+	}
+
+	public void setPhotoCount(int photoCount){
+		this.photoCount = photoCount;
+	}
+
+	public int getPhotoCount(){
+		return photoCount;
+	}
+
+	public void setHighlights(List<String> highlights){
+		this.highlights = highlights;
+	}
+
+	public List<String> getHighlights(){
+		return highlights;
+	}
+
+	public void setEventsUrl(String eventsUrl){
+		this.eventsUrl = eventsUrl;
+	}
+
+	public String getEventsUrl(){
+		return eventsUrl;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public void setLocation(Location location){
+		this.location = location;
+	}
+
+	public Location getLocation(){
+		return location;
+	}
+
+	public void setBookAgainUrl(String bookAgainUrl){
+		this.bookAgainUrl = bookAgainUrl;
+	}
+
+	public String getBookAgainUrl(){
+		return bookAgainUrl;
+	}
+
+	public void setIsBookFormWebView(int isBookFormWebView){
+		this.isBookFormWebView = isBookFormWebView;
+	}
+
+	public int getIsBookFormWebView(){
+		return isBookFormWebView;
+	}
+
+	public void setBookFormWebViewUrl(String bookFormWebViewUrl){
+		this.bookFormWebViewUrl = bookFormWebViewUrl;
+	}
+
+	public String getBookFormWebViewUrl(){
+		return bookFormWebViewUrl;
+	}
+
+	public void setMezzoProvider(String mezzoProvider){
+		this.mezzoProvider = mezzoProvider;
+	}
+
+	public String getMezzoProvider(){
+		return mezzoProvider;
+	}
+
+	public void setPhotosUrl(String photosUrl){
+		this.photosUrl = photosUrl;
+	}
+
+	public String getPhotosUrl(){
+		return photosUrl;
+	}
+
+	public void setOrderDeeplink(String orderDeeplink){
+		this.orderDeeplink = orderDeeplink;
+	}
+
+	public String getOrderDeeplink(){
+		return orderDeeplink;
+	}
+
+	public void setOrderUrl(String orderUrl){
+		this.orderUrl = orderUrl;
+	}
+
+	public String getOrderUrl(){
+		return orderUrl;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"Restaurant{" + 
+			"include_bogo_offers = '" + includeBogoOffers + '\'' + 
+			",has_online_delivery = '" + hasOnlineDelivery + '\'' + 
+			",establishment_types = '" + establishmentTypes + '\'' + 
+			",has_table_booking = '" + hasTableBooking + '\'' + 
+			",thumb = '" + thumb + '\'' + 
+			",average_cost_for_two = '" + averageCostForTwo + '\'' + 
+			",menu_url = '" + menuUrl + '\'' + 
+			",price_range = '" + priceRange + '\'' + 
+			",switch_to_order_menu = '" + switchToOrderMenu + '\'' + 
+			",photos = '" + photos + '\'' + 
+			",R = '" + R + '\'' + 
+			",all_reviews_count = '" + allReviewsCount + '\'' + 
+			",is_table_reservation_supported = '" + isTableReservationSupported + '\'' + 
+			",timings = '" + timings + '\'' + 
+			",currency = '" + currency + '\'' + 
+			",opentable_support = '" + opentableSupport + '\'' + 
+			",id = '" + id + '\'' + 
+			",all_reviews = '" + allReviews + '\'' + 
+			",user_rating = '" + userRating + '\'' + 
+			",offers = '" + offers + '\'' + 
+			",apikey = '" + apikey + '\'' + 
+			",is_delivering_now = '" + isDeliveringNow + '\'' + 
+			",deeplink = '" + deeplink + '\'' + 
+			",is_zomato_book_res = '" + isZomatoBookRes + '\'' + 
+			",establishment = '" + establishment + '\'' + 
+			",store_type = '" + storeType + '\'' + 
+			",featured_image = '" + featuredImage + '\'' + 
+			",url = '" + url + '\'' + 
+			",cuisines = '" + cuisines + '\'' + 
+			",phone_numbers = '" + phoneNumbers + '\'' + 
+			",photo_count = '" + photoCount + '\'' + 
+			",highlights = '" + highlights + '\'' + 
+			",events_url = '" + eventsUrl + '\'' + 
+			",name = '" + name + '\'' + 
+			",location = '" + location + '\'' + 
+			",book_again_url = '" + bookAgainUrl + '\'' + 
+			",is_book_form_web_view = '" + isBookFormWebView + '\'' + 
+			",book_form_web_view_url = '" + bookFormWebViewUrl + '\'' + 
+			",mezzo_provider = '" + mezzoProvider + '\'' + 
+			",photos_url = '" + photosUrl + '\'' + 
+			",order_deeplink = '" + orderDeeplink + '\'' + 
+			",order_url = '" + orderUrl + '\'' + 
+			"}";
+		}
 }

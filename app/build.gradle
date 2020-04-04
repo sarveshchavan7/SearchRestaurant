@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.restaurantsearch"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -70,4 +70,7 @@ dependencies {
     // Reactive Streams (convert Observable to LiveData)
     def reactivestreams_version = "1.1.1"
     implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
+
+    // Facebook shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 }

@@ -1,20 +1,23 @@
 package com.example.restaurantsearch.viewmodel;
 
-
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.restaurantsearch.R;
+import com.example.restaurantsearch.model.HeaderCuisine;
+import com.example.restaurantsearch.model.ItemRestaurant;
+import com.example.restaurantsearch.model.ListItems;
 import com.example.restaurantsearch.model.Restaurant;
-import com.example.restaurantsearch.model.RestaurantList;
+import com.example.restaurantsearch.model.RestaurantsItem;
+import com.example.restaurantsearch.model.SearchRestaurant;
 import com.example.restaurantsearch.service.ApiResponse;
 import com.example.restaurantsearch.service.EndPoints;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -24,7 +27,7 @@ import retrofit2.Response;
 
 public class RestaurantsViewModel extends ViewModel {
 
-    public MutableLiveData<ApiResponse<RestaurantList>> apiResponseLiveData = new MutableLiveData<>();
+    public MutableLiveData<ApiResponse<List<ListItems>>> apiResponseLiveData = new MutableLiveData<>();
 
     public static final String TAG = RestaurantsViewModel.class.getSimpleName();
 
@@ -33,33 +36,35 @@ public class RestaurantsViewModel extends ViewModel {
     @Inject
     RestaurantsViewModel(EndPoints endPoints) {
         this.endPoints = endPoints;
+        searchRestaurants("");
     }
 
     public void searchRestaurants(String query) {
-        apiResponseLiveData.postValue(ApiResponse.loading((RestaurantList) null));
-        endPoints.searchRestaurants(query).enqueue(new Callback<RestaurantList>() {
+        apiResponseLiveData.postValue(ApiResponse.loading((List<ListItems>) null));
+        endPoints.searchRestaurants(query, 20).enqueue(new Callback<SearchRestaurant>() {
             @Override
-            public void onResponse(Call<RestaurantList> call, Response<RestaurantList> response) {
-                if (response.code() == 200) {
-                    apiResponseLiveData.postValue(ApiResponse.success(response.body()));
+            public void onResponse(Call<SearchRestaurant> call, Response<SearchRestaurant> response) {
+                if (response.code() == 200 && response.body() != null) {
+                    List<ListItems> listItems = convertMapToList(toMap(response.body().getRestaurants()));
+                    apiResponseLiveData.postValue(ApiResponse.success(listItems));
                 } else {
-                    apiResponseLiveData.postValue(ApiResponse.error("SOME THING WENT WRONG " + response.code(), (RestaurantList) null));
+                    apiResponseLiveData.postValue(ApiResponse.error("SOME THING WENT WRONG" + response.code(), (List<ListItems>) null));
                 }
             }
 
             @Override
-            public void onFailure(Call<RestaurantList> call, Throwable t) {
-                apiResponseLiveData.postValue(ApiResponse.error(t.getMessage(), (RestaurantList) null));
+            public void onFailure(Call<SearchRestaurant> call, Throwable t) {
+                apiResponseLiveData.postValue(ApiResponse.error(t.getMessage() == null ? "" : t.getMessage(), (List<ListItems>) null));
             }
         });
     }
 
-    private HashMap<String, List<Restaurant>> toMap(List<Restaurant> restaurants) {
+    private HashMap<String, List<Restaurant>> toMap(List<RestaurantsItem> restaurants) {
         HashMap<String, List<Restaurant>> map = new HashMap<>();
 
-        for (Restaurant restaurant : restaurants) {
+        for (RestaurantsItem restaurant : restaurants) {
 
-            String[] Cuisines = restaurant.getRestaurant().getCuisines().split(",");
+            String[] Cuisines = restaurant.getRestaurant().getCuisines().split("\\s*,\\s*");
 
             for (String cuisine : Cuisines) {
 
@@ -67,10 +72,11 @@ public class RestaurantsViewModel extends ViewModel {
 
                 if (restaurantList == null) {
                     restaurantList = new ArrayList<>();
+                    restaurantList.add(restaurant.getRestaurant());
                     map.put(cuisine, restaurantList);
+                } else {
+                    restaurantList.add(restaurant.getRestaurant());
                 }
-
-                restaurantList.add(restaurant);
             }
         }
 
@@ -78,14 +84,21 @@ public class RestaurantsViewModel extends ViewModel {
         return map;
     }
 
-    private void printMap(HashMap<String, List<Restaurant>> hashMap) {
-        for (Map.Entry<String, List<Restaurant>> entry : hashMap.entrySet()) {
-            Log.d(TAG, "CUISINES : " + entry.getKey() + "\n");
-            for (Restaurant restaurant : entry.getValue()) {
-                Log.d(TAG, " - " + restaurant.getRestaurant().getName() + "\n");
+    private List<ListItems> convertMapToList(HashMap<String, List<Restaurant>> hashMap) {
+        List<ListItems> listItems = new ArrayList<>();
+        for (String cuisines : hashMap.keySet()) {
+            HeaderCuisine headerCuisine = new HeaderCuisine(cuisines);
+            listItems.add(headerCuisine);
+            List<Restaurant> restaurantList = hashMap.get(cuisines);
+            if (restaurantList != null) {
+                for (Restaurant restaurant : restaurantList) {
+                    ItemRestaurant itemRestaurant = new ItemRestaurant(restaurant);
+                    listItems.add(itemRestaurant);
+                }
             }
-            Log.d(TAG, "\n");
         }
+        return listItems;
     }
+
 
 }

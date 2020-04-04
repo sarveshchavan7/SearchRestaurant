@@ -1,21 +1,26 @@
-
 package com.example.restaurantsearch.model;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-@SuppressWarnings("unused")
-public class AllReviews {
+public class AllReviews{
 
-    @SerializedName("reviews")
-    private List<Review> mReviews;
+	@SerializedName("reviews")
+	private List<ReviewsItem> reviews;
 
-    public List<Review> getReviews() {
-        return mReviews;
-    }
+	public void setReviews(List<ReviewsItem> reviews){
+		this.reviews = reviews;
+	}
 
-    public void setReviews(List<Review> reviews) {
-        mReviews = reviews;
-    }
+	public List<ReviewsItem> getReviews(){
+		return reviews;
+	}
 
+	@Override
+ 	public String toString(){
+		return 
+			"AllReviews{" + 
+			"reviews = '" + reviews + '\'' + 
+			"}";
+		}
 }

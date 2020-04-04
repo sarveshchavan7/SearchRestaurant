@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">RestaurantSearch</string>
+    <string name="rupees_for_two">₹%1$s for two</string>
+    <string name="search_for_restaurant">Search for restaurant, cuisine..</string>
+    <string name="fast_food">Fast Food</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="_3_9">3.9</string>
+    <string name="cafe_american_beverages">Cafe, American, Beverages</string>
+    <string name="rs_200_per_person">Rs 200 per person</string>
+    <string name="some_thing_went_wrong">SOME THING WENT WRONG</string>
 </resources>

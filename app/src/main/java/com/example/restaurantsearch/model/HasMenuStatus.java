@@ -1,31 +1,37 @@
-
 package com.example.restaurantsearch.model;
 
 import com.google.gson.annotations.SerializedName;
 
+public class HasMenuStatus{
 
-@SuppressWarnings("unused")
-public class HasMenuStatus {
+	@SerializedName("delivery")
+	private int delivery;
 
-    @SerializedName("delivery")
-    private Long mDelivery;
-    @SerializedName("takeaway")
-    private Long mTakeaway;
+	@SerializedName("takeaway")
+	private int takeaway;
 
-    public Long getDelivery() {
-        return mDelivery;
-    }
+	public void setDelivery(int delivery){
+		this.delivery = delivery;
+	}
 
-    public void setDelivery(Long delivery) {
-        mDelivery = delivery;
-    }
+	public int getDelivery(){
+		return delivery;
+	}
 
-    public Long getTakeaway() {
-        return mTakeaway;
-    }
+	public void setTakeaway(int takeaway){
+		this.takeaway = takeaway;
+	}
 
-    public void setTakeaway(Long takeaway) {
-        mTakeaway = takeaway;
-    }
+	public int getTakeaway(){
+		return takeaway;
+	}
 
+	@Override
+ 	public String toString(){
+		return 
+			"HasMenuStatus{" + 
+			"delivery = '" + delivery + '\'' + 
+			",takeaway = '" + takeaway + '\'' + 
+			"}";
+		}
 }

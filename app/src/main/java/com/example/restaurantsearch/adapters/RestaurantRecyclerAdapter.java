@@ -1,31 +1,33 @@
 package com.example.restaurantsearch.adapters;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
-import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.RequestManager;
 import com.example.restaurantsearch.R;
+import com.example.restaurantsearch.model.HeaderCuisine;
+import com.example.restaurantsearch.model.ItemRestaurant;
+import com.example.restaurantsearch.model.ListItems;
 import com.example.restaurantsearch.model.Restaurant;
-import com.example.restaurantsearch.model.UserRating;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Restaurant> restaurants = new ArrayList<>();
+    private List<ListItems> cuisineAndRestaurant = new ArrayList<>();
 
     private RequestManager requestManager;
+
     public static final String TAG = RestaurantRecyclerAdapter.class.getSimpleName();
 
     public RestaurantRecyclerAdapter(RequestManager requestManager) {
@@ -35,53 +37,97 @@ public class RestaurantRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_restaurant, parent, false);
-        return new RestaurantViewHolder(v, requestManager);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        switch (viewType) {
+            case ListItems.TYPE_CUISINES: {
+                View itemViewCuisine = layoutInflater.inflate(R.layout.layout_item_cuisine, parent, false);
+                return new CuisineViewHolder(itemViewCuisine);
+            }
+            case ListItems.TYPE_RESTAURANT: {
+                View itemViewRestaurant = layoutInflater.inflate(R.layout.layout_item_restaurant, parent, false);
+                return new RestaurantViewHolder(itemViewRestaurant, parent.getContext());
+            }
+            default:
+                throw new IllegalStateException("unsupported type");
+        }
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
-
-        ((RestaurantViewHolder) holder).bindData(restaurants.get(position).getRestaurant());
+        int viewType = getItemViewType(position);
+        switch (viewType) {
+            case ListItems.TYPE_CUISINES: {
+                HeaderCuisine headerCuisine = (HeaderCuisine) cuisineAndRestaurant.get(position);
+                CuisineViewHolder cuisineViewHolder = (CuisineViewHolder) holder;
+                cuisineViewHolder.bindData(headerCuisine.getCuisine());
+                break;
+            }
+            case ListItems.TYPE_RESTAURANT: {
+                ItemRestaurant itemRestaurant = (ItemRestaurant) cuisineAndRestaurant.get(position);
+                RestaurantViewHolder restaurantViewHolder = (RestaurantViewHolder) holder;
+                restaurantViewHolder.bindData(itemRestaurant.getRestaurant());
+                break;
+            }
+            default:
+                throw new IllegalStateException("unsupported type");
+        }
     }
 
     @Override
     public int getItemCount() {
-        return restaurants.size();
+        return cuisineAndRestaurant.size();
     }
 
-    public void setRestaurants(List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
+    public void setCuisineAndRestaurant(List<ListItems> cuisineAndRestaurant) {
+        this.cuisineAndRestaurant = cuisineAndRestaurant;
         notifyDataSetChanged();
     }
 
     public class RestaurantViewHolder extends RecyclerView.ViewHolder {
         ImageView imgThumbNail;
         TextView tvRating, tvName, tvCuisines, tvPerPersonCost;
-        RequestManager requestManager;
+        Resources resources;
 
-        public RestaurantViewHolder(@NonNull View itemView, RequestManager requestManager) {
+        RestaurantViewHolder(@NonNull View itemView, Context ctx) {
             super(itemView);
             imgThumbNail = itemView.findViewById(R.id.img_thumbnail);
             tvRating = itemView.findViewById(R.id.tv_rating);
             tvName = itemView.findViewById(R.id.tv_name);
             tvCuisines = itemView.findViewById(R.id.tv_cuisines);
             tvPerPersonCost = itemView.findViewById(R.id.tv_per_person_cost);
-            this.requestManager = requestManager;
+            resources = ctx.getResources();
         }
 
-        public void bindData(Restaurant restaurant) {
+        void bindData(Restaurant restaurant) {
+
             if (restaurant != null) {
                 tvRating.setText(restaurant.getUserRating().getAggregateRating());
                 tvRating.setBackgroundColor(Color.parseColor("#" + restaurant.getUserRating().getRatingColor()));
                 tvName.setText(restaurant.getName());
                 tvCuisines.setText(restaurant.getCuisines());
-                tvPerPersonCost.setText(String.valueOf(restaurant.getAverageCostForTwo()));
+                tvPerPersonCost.setText(resources.getString(R.string.rupees_for_two, String.valueOf(restaurant.getAverageCostForTwo())));
                 requestManager.load(restaurant.getThumb()).into(imgThumbNail);
             }
 
         }
 
+    }
+
+    public class CuisineViewHolder extends RecyclerView.ViewHolder {
+        TextView tvCuisineName;
+
+        CuisineViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvCuisineName = itemView.findViewById(R.id.tv_cuisine_name);
+        }
+
+        void bindData(String cuisineName) {
+            tvCuisineName.setText(cuisineName);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return cuisineAndRestaurant.get(position).getType();
     }
 }

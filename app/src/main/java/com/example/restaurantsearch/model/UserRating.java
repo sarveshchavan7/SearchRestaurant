@@ -1,61 +1,73 @@
-
 package com.example.restaurantsearch.model;
 
 import com.google.gson.annotations.SerializedName;
 
+public class UserRating{
 
-@SuppressWarnings("unused")
-public class UserRating {
+	@SerializedName("aggregate_rating")
+	private String aggregateRating;
 
-    @SerializedName("aggregate_rating")
-    private String mAggregateRating;
-    @SerializedName("rating_color")
-    private String mRatingColor;
-    @SerializedName("rating_obj")
-    private RatingObj mRatingObj;
-    @SerializedName("rating_text")
-    private String mRatingText;
-    @SerializedName("votes")
-    private String mVotes;
+	@SerializedName("rating_color")
+	private String ratingColor;
 
-    public String getAggregateRating() {
-        return mAggregateRating;
-    }
+	@SerializedName("rating_obj")
+	private RatingObj ratingObj;
 
-    public void setAggregateRating(String aggregateRating) {
-        mAggregateRating = aggregateRating;
-    }
+	@SerializedName("rating_text")
+	private String ratingText;
 
-    public String getRatingColor() {
-        return mRatingColor;
-    }
+	@SerializedName("votes")
+	private String votes;
 
-    public void setRatingColor(String ratingColor) {
-        mRatingColor = ratingColor;
-    }
+	public void setAggregateRating(String aggregateRating){
+		this.aggregateRating = aggregateRating;
+	}
 
-    public RatingObj getRatingObj() {
-        return mRatingObj;
-    }
+	public String getAggregateRating(){
+		return aggregateRating;
+	}
 
-    public void setRatingObj(RatingObj ratingObj) {
-        mRatingObj = ratingObj;
-    }
+	public void setRatingColor(String ratingColor){
+		this.ratingColor = ratingColor;
+	}
 
-    public String getRatingText() {
-        return mRatingText;
-    }
+	public String getRatingColor(){
+		return ratingColor;
+	}
 
-    public void setRatingText(String ratingText) {
-        mRatingText = ratingText;
-    }
+	public void setRatingObj(RatingObj ratingObj){
+		this.ratingObj = ratingObj;
+	}
 
-    public String getVotes() {
-        return mVotes;
-    }
+	public RatingObj getRatingObj(){
+		return ratingObj;
+	}
 
-    public void setVotes(String votes) {
-        mVotes = votes;
-    }
+	public void setRatingText(String ratingText){
+		this.ratingText = ratingText;
+	}
 
+	public String getRatingText(){
+		return ratingText;
+	}
+
+	public void setVotes(String votes){
+		this.votes = votes;
+	}
+
+	public String getVotes(){
+		return votes;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"UserRating{" + 
+			"aggregate_rating = '" + aggregateRating + '\'' + 
+			",rating_color = '" + ratingColor + '\'' + 
+			",rating_obj = '" + ratingObj + '\'' + 
+			",rating_text = '" + ratingText + '\'' + 
+			",votes = '" + votes + '\'' + 
+			"}";
+		}
 }

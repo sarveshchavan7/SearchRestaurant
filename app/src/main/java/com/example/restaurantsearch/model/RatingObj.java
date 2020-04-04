@@ -1,31 +1,37 @@
-
 package com.example.restaurantsearch.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
-@SuppressWarnings("unused")
-public class RatingObj {
+public class RatingObj{
 
-    @SerializedName("bg_color")
-    private BgColor mBgColor;
-    @SerializedName("title")
-    private Title mTitle;
+	@SerializedName("bg_color")
+	private BgColor bgColor;
 
-    public BgColor getBgColor() {
-        return mBgColor;
-    }
+	@SerializedName("title")
+	private Title title;
 
-    public void setBgColor(BgColor bgColor) {
-        mBgColor = bgColor;
-    }
+	public void setBgColor(BgColor bgColor){
+		this.bgColor = bgColor;
+	}
 
-    public Title getTitle() {
-        return mTitle;
-    }
+	public BgColor getBgColor(){
+		return bgColor;
+	}
 
-    public void setTitle(Title title) {
-        mTitle = title;
-    }
+	public void setTitle(Title title){
+		this.title = title;
+	}
 
+	public Title getTitle(){
+		return title;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"RatingObj{" + 
+			"bg_color = '" + bgColor + '\'' + 
+			",title = '" + title + '\'' + 
+			"}";
+		}
 }

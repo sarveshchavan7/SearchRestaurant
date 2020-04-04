@@ -1,122 +1,133 @@
-
 package com.example.restaurantsearch.model;
-
 
 import com.google.gson.annotations.SerializedName;
 
+public class Photo{
 
-@SuppressWarnings("unused")
-public class Photo {
+	@SerializedName("thumb_url")
+	private String thumbUrl;
 
-    @SerializedName("caption")
-    private String mCaption;
-    @SerializedName("friendly_time")
-    private String mFriendlyTime;
-    @SerializedName("height")
-    private Long mHeight;
-    @SerializedName("id")
-    private String mId;
-    @SerializedName("photo")
-    private Photo mPhoto;
-    @SerializedName("res_id")
-    private Long mResId;
-    @SerializedName("thumb_url")
-    private String mThumbUrl;
-    @SerializedName("timestamp")
-    private Long mTimestamp;
-    @SerializedName("url")
-    private String mUrl;
-    @SerializedName("user")
-    private User mUser;
-    @SerializedName("width")
-    private Long mWidth;
+	@SerializedName("friendly_time")
+	private String friendlyTime;
 
-    public String getCaption() {
-        return mCaption;
-    }
+	@SerializedName("res_id")
+	private int resId;
 
-    public void setCaption(String caption) {
-        mCaption = caption;
-    }
+	@SerializedName("width")
+	private int width;
 
-    public String getFriendlyTime() {
-        return mFriendlyTime;
-    }
+	@SerializedName("caption")
+	private String caption;
 
-    public void setFriendlyTime(String friendlyTime) {
-        mFriendlyTime = friendlyTime;
-    }
+	@SerializedName("id")
+	private String id;
 
-    public Long getHeight() {
-        return mHeight;
-    }
+	@SerializedName("user")
+	private User user;
 
-    public void setHeight(Long height) {
-        mHeight = height;
-    }
+	@SerializedName("url")
+	private String url;
 
-    public String getId() {
-        return mId;
-    }
+	@SerializedName("timestamp")
+	private int timestamp;
 
-    public void setId(String id) {
-        mId = id;
-    }
+	@SerializedName("height")
+	private int height;
 
-    public Photo getPhoto() {
-        return mPhoto;
-    }
+	public void setThumbUrl(String thumbUrl){
+		this.thumbUrl = thumbUrl;
+	}
 
-    public void setPhoto(Photo photo) {
-        mPhoto = photo;
-    }
+	public String getThumbUrl(){
+		return thumbUrl;
+	}
 
-    public Long getResId() {
-        return mResId;
-    }
+	public void setFriendlyTime(String friendlyTime){
+		this.friendlyTime = friendlyTime;
+	}
 
-    public void setResId(Long resId) {
-        mResId = resId;
-    }
+	public String getFriendlyTime(){
+		return friendlyTime;
+	}
 
-    public String getThumbUrl() {
-        return mThumbUrl;
-    }
+	public void setResId(int resId){
+		this.resId = resId;
+	}
 
-    public void setThumbUrl(String thumbUrl) {
-        mThumbUrl = thumbUrl;
-    }
+	public int getResId(){
+		return resId;
+	}
 
-    public Long getTimestamp() {
-        return mTimestamp;
-    }
+	public void setWidth(int width){
+		this.width = width;
+	}
 
-    public void setTimestamp(Long timestamp) {
-        mTimestamp = timestamp;
-    }
+	public int getWidth(){
+		return width;
+	}
 
-    public String getUrl() {
-        return mUrl;
-    }
+	public void setCaption(String caption){
+		this.caption = caption;
+	}
 
-    public void setUrl(String url) {
-        mUrl = url;
-    }
+	public String getCaption(){
+		return caption;
+	}
 
-    public User getUser() {
-        return mUser;
-    }
+	public void setId(String id){
+		this.id = id;
+	}
 
-    public void setUser(User user) {
-        mUser = user;
-    }
+	public String getId(){
+		return id;
+	}
 
-    public Long getWidth() {
-        return mWidth;
-    }
+	public void setUser(User user){
+		this.user = user;
+	}
 
-    public void setWidth(Long width) {
-        mWidth = width;
-    }
+	public User getUser(){
+		return user;
+	}
 
+	public void setUrl(String url){
+		this.url = url;
+	}
+
+	public String getUrl(){
+		return url;
+	}
+
+	public void setTimestamp(int timestamp){
+		this.timestamp = timestamp;
+	}
+
+	public int getTimestamp(){
+		return timestamp;
+	}
+
+	public void setHeight(int height){
+		this.height = height;
+	}
+
+	public int getHeight(){
+		return height;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"Photo{" + 
+			"thumb_url = '" + thumbUrl + '\'' + 
+			",friendly_time = '" + friendlyTime + '\'' + 
+			",res_id = '" + resId + '\'' + 
+			",width = '" + width + '\'' + 
+			",caption = '" + caption + '\'' + 
+			",id = '" + id + '\'' + 
+			",user = '" + user + '\'' + 
+			",url = '" + url + '\'' + 
+			",timestamp = '" + timestamp + '\'' + 
+			",height = '" + height + '\'' + 
+			"}";
+		}
 }
