@@ -4,7 +4,7 @@ Application for searching restaurants using zomato's search api.
 
 1. Model–view–viewmodel (MVVM) architectural pattern.
 2. Dagger2 for dependency injection.
-3. retrofit for networking.
+3. Retrofit for networking.
 4. RxJava for debounce operator.
 5. Glide for loading images.
 
